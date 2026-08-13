@@ -1,0 +1,195 @@
+.movement-section {
+  position: relative;
+  background-color: var(--bg-primary);
+  padding: 10rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.movement-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(229, 193, 88, 0.02) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.movement-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.movement-text-content {
+  max-width: 480px;
+}
+
+.movement-title {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+}
+
+.movement-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* Gear Visualizer Layout */
+.movement-visualizer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gears-viewport {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(13, 13, 13, 0.9) 0%, rgba(5, 5, 5, 0.95) 100%);
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 10px 40px rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gear Styling and Overlap Positioning */
+.gear {
+  position: absolute;
+  will-change: transform;
+}
+
+.gear-balance {
+  width: 95%;
+  height: 95%;
+  z-index: 4;
+}
+
+.gear-main {
+  width: 75%;
+  height: 75%;
+  left: 20%;
+  top: 15%;
+  z-index: 2;
+}
+
+.gear-escapement {
+  width: 42%;
+  height: 42%;
+  left: 10%;
+  top: 45%;
+  z-index: 3;
+}
+
+.gear-auxiliary {
+  width: 25%;
+  height: 25%;
+  left: 60%;
+  top: 55%;
+  z-index: 1;
+}
+
+/* Callouts Styling */
+.movement-callout {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 220px;
+  z-index: 10;
+}
+
+.movement-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-champagne);
+  box-shadow: 0 0 8px var(--accent-gold);
+}
+
+.movement-label-line {
+  height: 1px;
+  background-color: var(--border-medium);
+  width: 40px;
+  position: relative;
+}
+
+.line-right {
+  order: 1;
+}
+
+.line-left {
+  order: 2;
+}
+
+.movement-label-text {
+  flex: 1;
+}
+
+.callout-balance .movement-label-text,
+.callout-escapement .movement-label-text {
+  order: 2;
+}
+
+.callout-mainspring .movement-label-text,
+.callout-geartrain .movement-label-text {
+  order: 1;
+  text-align: right;
+}
+
+.movement-label-text h4 {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.movement-label-text p {
+  font-size: 0.65rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .movement-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .movement-text-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .movement-section {
+    padding: 6rem 0;
+  }
+  .movement-title {
+    font-size: 2.2rem;
+  }
+  .movement-callout {
+    display: none; /* Hide indicator text lines on mobile for clean screen estate */
+  }
+  .gears-viewport {
+    width: 90%;
+    height: 90%;
+  }
+}

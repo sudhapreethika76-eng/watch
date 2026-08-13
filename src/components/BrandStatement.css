@@ -1,0 +1,61 @@
+.brand-statement-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.statement-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.statement-text {
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.statement-line {
+  will-change: transform, opacity, filter;
+  display: block;
+}
+
+.statement-space {
+  height: 2rem;
+}
+
+.accent-gold {
+  color: var(--accent-champagne);
+  text-shadow: 0 0 40px var(--accent-gold-glow);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .statement-text {
+    font-size: 3.8rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .statement-text {
+    font-size: 2.4rem;
+    letter-spacing: 0.08em;
+  }
+  .statement-space {
+    height: 1rem;
+  }
+}

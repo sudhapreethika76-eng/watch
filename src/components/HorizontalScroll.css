@@ -1,0 +1,234 @@
+.horizontal-scroll-container {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-primary);
+}
+
+.horizontal-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.horizontal-slider-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Slide Container base styles */
+.horizontal-slide {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 8%;
+  overflow: hidden;
+}
+
+.panel-dark {
+  background-color: var(--bg-secondary);
+}
+
+/* Slide 1: Big Typography Slide */
+.title-slide {
+  background-color: var(--bg-primary);
+  justify-content: flex-start;
+}
+
+.title-slide-content {
+  position: relative;
+  z-index: 5;
+  max-width: 500px;
+}
+
+.horizontal-title {
+  font-size: 5rem;
+  font-weight: 300;
+  line-height: 1.15;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.accent-gold-text {
+  color: var(--accent-champagne);
+}
+
+.horizontal-desc-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.title-bg-text {
+  position: absolute;
+  right: -5%;
+  bottom: 0;
+  font-family: var(--font-serif);
+  font-size: 22vw;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.012);
+  line-height: 0.8;
+  letter-spacing: 0.05em;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Product slides layout (Slide 2, 3, 4) */
+.product-slide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 8rem;
+  align-items: center;
+}
+
+.product-slide-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-slide-image img {
+  max-height: 65vh;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 45px rgba(0,0,0,0.85));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.horizontal-slide:hover .product-slide-image img {
+  transform: scale(1.04);
+}
+
+.product-slide-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-num {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--accent-champagne);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.product-slide-info h3 {
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.product-slide-info p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 3.5rem;
+  max-width: 480px;
+}
+
+.slide-details-row {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.slide-details-row h5 {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.slide-details-row p {
+  font-size: 0.75rem;
+  color: var(--accent-champagne);
+  margin-bottom: 0;
+}
+
+/* Custom alignment overrides for visual flow */
+.text-right-layout {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.text-right-layout p {
+  margin-left: auto;
+}
+
+.text-right-row {
+  justify-content: flex-end;
+  text-align: left;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .product-slide-grid {
+    gap: 4rem;
+  }
+  .horizontal-title {
+    font-size: 3.8rem;
+  }
+  .product-slide-info h3 {
+    font-size: 2rem;
+  }
+  .product-slide-image img {
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .horizontal-sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+  .horizontal-slider-track {
+    flex-direction: column;
+    width: 100% !important;
+    transform: none !important;
+  }
+  .horizontal-slide {
+    width: 100vw;
+    height: auto;
+    padding: 6rem 1.5rem;
+  }
+  .title-slide {
+    height: 60vh;
+  }
+  .title-bg-text {
+    display: none;
+  }
+  .product-slide-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .product-slide-image {
+    order: -1; /* Image on top */
+  }
+  .product-slide-image img {
+    max-height: 40vh;
+  }
+  .text-right-layout {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .text-right-layout p {
+    margin-left: 0;
+  }
+  .text-right-row {
+    justify-content: flex-start;
+  }
+}

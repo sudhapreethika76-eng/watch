@@ -1,0 +1,141 @@
+.craftsmanship-section {
+  background-color: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.craftsmanship-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Left Visual Column */
+.craftsmanship-visual {
+  position: relative;
+  width: 100%;
+}
+
+.image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+}
+
+.craftsmanship-image {
+  width: 100%;
+  height: 120%; /* Extra height to support y-parallax */
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.5s ease;
+}
+
+.image-frame:hover .craftsmanship-image {
+  opacity: 1;
+}
+
+.frame-border {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  transition: var(--transition-medium);
+}
+
+.image-frame:hover .frame-border {
+  border-color: var(--accent-champagne);
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  bottom: 25px;
+}
+
+/* Right Content Column */
+.craftsmanship-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.craftsmanship-title {
+  font-size: 3.2rem;
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.craftsmanship-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 4rem;
+}
+
+.craftsmanship-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.craftsmanship-feature {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.feature-num {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accent-champagne);
+  border-bottom: 1px solid var(--accent-champagne);
+  padding-bottom: 0.2rem;
+  line-height: 1;
+}
+
+.feature-info h3 {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.feature-info p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .craftsmanship-container {
+    gap: 3rem;
+  }
+  .craftsmanship-title {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .craftsmanship-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .craftsmanship-title {
+    font-size: 2.2rem;
+  }
+  .craftsmanship-desc {
+    margin-bottom: 3rem;
+  }
+}

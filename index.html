@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AURELIS | TIME, REFINED. Discover our luxury swiss mechanical timepieces, crafted with precision engineering and timeless design." />
+    <title>AURELIS | TIME, REFINED.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        background-color: #050505;
+      }
+      #global-preloader {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #09090b;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.8s;
+      }
+      #global-preloader.fade-out {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .preloader-watch-hands {
+        position: relative;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: inset 0 0 25px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5);
+        background: radial-gradient(circle at center, #111 0%, #050505 100%);
+      }
+      .preloader-watch-hands::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 7px;
+        height: 7px;
+        background-color: #e5c158;
+        border-radius: 50%;
+        z-index: 10;
+        box-shadow: 0 0 4px rgba(0,0,0,0.9);
+      }
+      .hand {
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform-origin: bottom center;
+        border-radius: 4px;
+      }
+      .hand.hour {
+        width: 5px;
+        height: 24px;
+        background-color: #fff;
+        margin-left: -2.5px;
+        animation: rotate-hand 12s linear infinite;
+        box-shadow: 0 0 4px rgba(0,0,0,0.6);
+      }
+      .hand.minute {
+        width: 3px;
+        height: 35px;
+        background-color: rgba(255, 255, 255, 0.9);
+        margin-left: -1.5px;
+        animation: rotate-hand 1.5s linear infinite;
+        box-shadow: 0 0 4px rgba(0,0,0,0.6);
+      }
+      .hand.second {
+        width: 1.5px;
+        height: 42px;
+        background-color: #e5c158;
+        margin-left: -0.75px;
+        animation: rotate-hand 0.75s infinite linear;
+        box-shadow: 0 0 2px rgba(0,0,0,0.6);
+      }
+      .hand.second::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background-color: #e5c158;
+        border-radius: 2px;
+      }
+      @keyframes rotate-hand {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .preloader-text {
+        margin-top: 2.5rem;
+        font-family: "Inter", sans-serif;
+        color: #e5c158;
+        font-size: 0.75rem;
+        letter-spacing: 0.45em;
+        text-transform: uppercase;
+        animation: pulse-text 2s infinite ease-in-out;
+      }
+      @keyframes pulse-text {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="global-preloader">
+      <div class="preloader-watch-hands">
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+      </div>
+      <div class="preloader-text">Aurelis</div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const preloader = document.getElementById('global-preloader');
+          if(preloader) {
+            preloader.classList.add('fade-out');
+            setTimeout(() => preloader.remove(), 800);
+          }
+        }, 5000);
+      });
+    </script>
+  </body>
+</html>
