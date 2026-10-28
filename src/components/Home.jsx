@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import WatchHero from './WatchHero';
+import Footer from './Footer';
 import './Home.css';
 
 // ── Product images
@@ -90,6 +91,8 @@ export default function Home() {
       {/* ═══════════════════════════════
           SHOP / PRODUCTS
       ═══════════════════════════════ */}
+      <div id="collection"></div>
+      <div id="collection-section"></div>
       <section className="shop-section" id="shop-section">
         <div className="shop-container">
 
@@ -250,6 +253,11 @@ export default function Home() {
           </button>
         </div>
       </section>
+
+      {/* ═══════════════════════════════
+          FOOTER
+      ═══════════════════════════════ */}
+      <Footer />
 
     </div>
   );
